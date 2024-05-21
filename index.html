@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Rings with Glow</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+    overflow: hidden;
+  }
+
+  .ring-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 0, 150, 0.6), rgba(0, 0, 255, 0.6));
+    box-shadow: 0 0 15px rgba(255, 0, 150, 0.8), 0 0 30px rgba(0, 0, 255, 0.8), 
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: rotate 10s infinite linear, pulse 3s infinite alternate;
+    transition: background 0.5s ease-in-out;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  .ring:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .ring:nth-child(3) {
+    animation-delay: 7s;
+  }
+  .ring:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 150, 1), 0 0 40px rgba(0, 0, 255, 1),
+                inset 0 0 25px rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+  <div class="ring-container">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+</body>
+</html>
